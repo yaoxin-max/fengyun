@@ -1,18 +1,16 @@
 import java.util.Random;
 import java.util.Scanner;
 
-
-
 public class OrderHotel {
 	static String[] hotels = {"格林豪泰苏州火车站南广场拙政园商务酒店","格雅苏州工业园区金鸡湖东方之门酒店","格林豪泰苏州漕湖工业园智选酒店"};
 	static String[] houseTyel = {"大床房","标间","豪华双床房","高级大床房"};
 	public static void main(String[] args) {
 
-
 		Scanner  sc = new Scanner(System.in);
 		System.out.println("格林豪泰苏州火车站南广场拙政园商务酒店：1");
 		System.out.println("格雅苏州工业园区金鸡湖东方之门酒店：2");
 		System.out.println("格林豪泰苏州漕湖工业园智选酒店：3");
+		
 		int flag=0;//判断用户
 		while(flag==0){
 			System.out.println("亲，请根据提示输入您要入住宾馆的序号：");
@@ -22,7 +20,6 @@ public class OrderHotel {
 				System.out.println("欢迎选择"+hotels[number-1]);
 				glZzy();//显式房型及对应的价格给客户
 				houseType(number);
-				
 				break;
 			case 2:
 				System.out.println("欢迎选择"+hotels[number-1]);
@@ -33,7 +30,7 @@ public class OrderHotel {
 			case 3:
 				System.out.println("欢迎选择"+hotels[number-1]);
 				System.out.println("这是我们的房型：");
-				System.out.println("我们的房型高级大床房---vip/no-vip:(189/161)");
+				System.out.println("高级大床房---vip/no-vip:(189/161)");
 				houseType(number);
 				break;
 			default:
@@ -42,10 +39,9 @@ public class OrderHotel {
 			if(number==1||number==2||number==3){break;}
 			System.out.println("重新选择，请输入0，");
 			flag=sc.nextInt();
-		}
-		
-		
+		}	
 	}
+	
 	//显式格林豪泰苏州火车站南广场拙政园商务酒店的房型
 	public static void glZzy() {
 		System.out.println("这是我们的房型:");
@@ -54,6 +50,7 @@ public class OrderHotel {
 			System.out.print(i+"\t");
 		}
 	}
+	
 	public static void houseType(int number) {
 		Random r = new Random();
 		int ran1 = r.nextInt(1000);
@@ -102,14 +99,17 @@ public class OrderHotel {
 				}
 			}
 	}
+	
 	//是否是会员
 	public static void isVip(){
 		System.out.println("你是会员吗--(1/0)");//1表示是
 	}
+	
 	//是否有会员券
 	public static void hasCoupon(){
 		System.out.println("你有优惠券吗--(1/0)");//1表示有	
 	}
+	
 	//返回价格
 	public static double returnPrice(int number,int number1,int coupon,int vip) {
 		int price = 0;
